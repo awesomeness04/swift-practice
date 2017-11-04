@@ -116,7 +116,7 @@ import Foundation
 //    print("Wowza! You get a point! You finished with \(score) points!")
 //}
 //else {
-//    print("Aww....you failed... Nice try, though! You finished with \(score) points.")
+//    print("Aww....you failed. Nice try, though! You finished with \(score) points.")
 //}
 
 //let coordinate = (x:3,y:2)
@@ -124,6 +124,53 @@ import Foundation
 
 //var emptyTuple: (x: Int, y: Int)
 
-let integerArray = [1,2,3,4,5]
-let emptyArray : [String]
+//let integerArray = [1,2,3,4,5]
+//let emptyArray : [String]
 //print(emptyArray)
+
+func distance(t: Double) -> Double {
+    return (0.5 * 9.81 * t * t)
+}
+
+//print(distance(t: 7.0))
+
+func position(x:Double, v:Double, a:Double, t:Double) -> Double {
+    return (x + v * t + 0.5 * a * t * t)
+}
+
+//print(position(x: 100.0, v: 30.0, a: -32.0, t: (15.0 / 16.0)))
+
+let G           = 6.67408 * pow(10.0, -11.0)
+let earthRadius = 6.3781  * pow(10.0, 6.0)
+let earthMass   = 5.9722  * pow(10.0, 24.0)
+
+func forceOfGravity(m1:Double, m2:Double, r: Double) -> Double {
+    return G * ((m1 * m2) / (r * r))
+}
+
+//print(forceOfGravity(m1: 72.5748, m2: earthMass, r: earthRadius) / 72.5748)
+
+func positionTable(duration:Double, interval:Double) {
+    var time = 0.0
+    while time <= duration {
+        print("\(time)s: \(position(x: 100.0, v: 30.0, a: -32.0, t: time))")
+        time += interval
+    }
+}
+
+print("What's the initial position above sea level in feet?")
+let x = readLine()
+print("What's the initial velocity in feet per second?")
+let v = readLine()
+print("What's the acceleration in negative feet per second?")
+let a = readLine()
+print("What's the duration of the simulation in seconds?")
+let duration2 = readLine()
+print("What's the interval between each recorded time in seconds?")
+let interval = readLine()
+
+guard let unwrappedDuration = duration2
+
+
+
+positionTable(duration: duration, interval: interval)
