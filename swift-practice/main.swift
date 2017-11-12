@@ -157,7 +157,7 @@ func positionTable(duration:Double, interval:Double) {
         time += interval
     }
 }
-
+/*
 print("What's the initial position above sea level in feet?")
 let x = readLine()
 print("What's the initial velocity in feet per second?")
@@ -168,9 +168,46 @@ print("What's the duration of the simulation in seconds?")
 let duration2 = readLine()
 print("What's the interval between each recorded time in seconds?")
 let interval = readLine()
-
+*/
+/*
 guard let unwrappedDuration = duration2
+    else {
+        print("You shall not pass")
+        exit(1)
+}
+ */
+
+
+// positionTable(duration: duration, interval: interval)
+
+func celsiusToFahrenheit(c:Double) -> Double {
+    return 9.0 / 5.0 * c + 32.0
+}
+
+func fahrenheitToCelsius(f:Double) -> Double {
+    return 5.0 / 9.0 * f - 5.0 / 9.0 * 32
+}
+func celsiusToKelvin(c:Double) -> Double {
+    return c + 273.15
+}
+
+func fahrenheitToKelvin(f:Double) -> Double {
+    return celsiusToKelvin(c: fahrenheitToCelsius(f:f))
+}
+/*
+print(celsiusToFahrenheit(c: 0.0)) // => 32.0
+print(fahrenheitToCelsius(f: 32.0)) // => 0.0
+print(celsiusToKelvin(c: 0.0)) // => 273.15
+print(fahrenheitToKelvin(f:32.0)) // => 273.15
+*/
+
+print("Enter a temperature (F, C, or K)")
+let ask = readLine()
 
 
 
-positionTable(duration: duration, interval: interval)
+print("32F")
+print(" = 0C")
+print(" = 273.15K")
+
+
