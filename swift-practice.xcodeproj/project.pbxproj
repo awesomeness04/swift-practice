@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		AD042A101F9BB80200CE646C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD042A0F1F9BB80200CE646C /* main.swift */; };
+		AD5199F41FC0B030001B8A01 /* practice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5199F31FC0B030001B8A01 /* practice.swift */; };
+		AD5199F61FC0B0A7001B8A01 /* apples.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5199F51FC0B0A7001B8A01 /* apples.swift */; };
+		AD5199F81FC0B172001B8A01 /* school.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5199F71FC0B172001B8A01 /* school.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,9 @@
 /* Begin PBXFileReference section */
 		AD042A0C1F9BB80200CE646C /* swift-practice */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "swift-practice"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD042A0F1F9BB80200CE646C /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		AD5199F31FC0B030001B8A01 /* practice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = practice.swift; sourceTree = "<group>"; };
+		AD5199F51FC0B0A7001B8A01 /* apples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = apples.swift; sourceTree = "<group>"; };
+		AD5199F71FC0B172001B8A01 /* school.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = school.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,9 @@
 			isa = PBXGroup;
 			children = (
 				AD042A0F1F9BB80200CE646C /* main.swift */,
+				AD5199F31FC0B030001B8A01 /* practice.swift */,
+				AD5199F71FC0B172001B8A01 /* school.swift */,
+				AD5199F51FC0B0A7001B8A01 /* apples.swift */,
 			);
 			path = "swift-practice";
 			sourceTree = "<group>";
@@ -120,7 +129,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD5199F41FC0B030001B8A01 /* practice.swift in Sources */,
 				AD042A101F9BB80200CE646C /* main.swift in Sources */,
+				AD5199F61FC0B0A7001B8A01 /* apples.swift in Sources */,
+				AD5199F81FC0B172001B8A01 /* school.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +262,7 @@
 				AD042A151F9BB80200CE646C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
