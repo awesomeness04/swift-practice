@@ -20,6 +20,15 @@ struct Student {
     
 }
 
+struct Class {
+    
+    var subject:String
+    var teacher:String
+    var roster:[Student]
+    
+    
+}
+
 func studentGradeAverage(students: [Student]) -> Double {
     var sum = 0.0
     for student in students {
@@ -30,30 +39,31 @@ func studentGradeAverage(students: [Student]) -> Double {
 }
 
 func studentNames(students: [Student], separator: String) -> String {
+    let comma = ", "
     var output = ""
     for (index, student) in students.enumerated() {
         output += student.name
-        if index[4] != students[4] {
-            delete(index[4])
+        if index != students.count - 1 {
+            output += comma
         }
+        
     }
     return output
 }
 
-
 func schoolProgram() {
     
-    let students = [
+    let singleClass = Class(subject:"Science", teacher:"Mr. Ologey", roster: [
         Student(id: 1049168, name: "Nicholas Hoang", gpa: 4.0),
         Student(id: 1424242, name: "Meen N. O'Life", gpa: 3.8),
         Student(id: 0000001, name: "Olde Gihe", gpa: 3.677),
         Student(id: 1234567, name: "Count Withe Mhee", gpa: 3.9),
         Student(id: 9876543, name: "Dee Creasse", gpa: 3.5)
-    ]
-
-    print(studentNames(students: students, separator: ", "))
+    ])
     
-    print("The GPA for these students is: \(studentGradeAverage(students: students)).")
+    print(studentNames(students: singleClass.roster, separator: " // ")) // TODO: why not slashes???
+    
+    //print("The GPA for these students is: \(studentGradeAverage(classes.students: classes.students)).")
 }
 
 
