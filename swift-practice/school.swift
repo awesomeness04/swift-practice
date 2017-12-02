@@ -26,6 +26,43 @@ struct Class {
     var teacher:String
     var roster:[Student]
     
+    func listStudents(separator: String) -> String {
+        var output = ""
+        for (index, student) in roster.enumerated() {
+            output += student.name
+            if index != roster.count - 1 {
+                output += separator
+            }
+            
+        }
+        return output
+    }
+    
+    func calculateGradeAverage() -> Double {
+        var sum = 0.0
+        for student in roster {
+            sum += student.gpa
+            
+        }
+        return sum / Double(roster.count)
+    }
+
+    func printStudents(separator: String){
+        print(listStudents(separator:separator))
+    }
+    
+    mutating func addStudent() {
+        print("What's the student's name?")
+        let newStudentName=readLine()
+        print("What's the student's ID?")
+        let newStudentId=readLine()
+        print("What's the student's GPA?")
+        let newStudentGpa=readLine()
+        let newStudent = Student(id: Int(newStudentId!)!, name: newStudentName!, gpa: Double(newStudentGpa!)!)
+        roster.append(newStudent)
+    }
+
+    
     
 }
 
@@ -38,22 +75,10 @@ func studentGradeAverage(students: [Student]) -> Double {
     return sum / Double(students.count)
 }
 
-func studentNames(students: [Student], separator: String) -> String {
-    let comma = ", "
-    var output = ""
-    for (index, student) in students.enumerated() {
-        output += student.name
-        if index != students.count - 1 {
-            output += comma
-        }
-        
-    }
-    return output
-}
-
 func schoolProgram() {
     
-    let singleClass = Class(subject:"Science", teacher:"Mr. Ologey", roster: [
+    
+    var singleClass = Class(subject:"Science", teacher:"Mr. Ologey", roster: [
         Student(id: 1049168, name: "Nicholas Hoang", gpa: 4.0),
         Student(id: 1424242, name: "Meen N. O'Life", gpa: 3.8),
         Student(id: 0000001, name: "Olde Gihe", gpa: 3.677),
@@ -61,7 +86,28 @@ func schoolProgram() {
         Student(id: 9876543, name: "Dee Creasse", gpa: 3.5)
     ])
     
-    print(studentNames(students: singleClass.roster, separator: " // ")) // TODO: why not slashes???
+    // singleClass.printStudents(separator: "\n")
+    // print(singleClass.calculateGradeAverage())
+ 
+    
+    
+    /*
+    print("What's the student's name?")
+    let newStudentName=readLine()
+    print("What's the student's ID?")
+    let newStudentId=readLine()
+    print("What's the student's GPA?")
+    let newStudentGpa=readLine()
+    var newStudent = Student(id: Int(newStudentId!)!, name: newStudentName!, gpa: Double(newStudentGpa!)!)
+    
+     singleClass.roster.append(newStudent)
+    */
+    singleClass.addStudent()
+    singleClass.printStudents(separator: "\n")
+    
+    
+    
+    // print(studentNames(students: singleClass.roster, separator: " // ")) // TODO: why not slashes???
     
     //print("The GPA for these students is: \(studentGradeAverage(classes.students: classes.students)).")
 }
