@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+/*
 struct Student {
     
     var id:Int
@@ -19,12 +19,68 @@ struct Student {
     }
     
 }
+*/
 
-struct Class {
+class Person : CustomStringConvertible {
     
-    var subject:String
-    var teacher:String
-    var roster:[Student]
+    var name:   String
+    var gender: String
+    var age:    Int
+    
+    var description: String {
+        return "\(name) (\(age), \(gender))"
+    }
+    
+    init(name: String, gender: String, age: Int) {
+        self.name   = name
+        self.gender = gender
+        self.age    = age
+    }
+    
+}
+
+class Student : Person {
+    
+    var id:     Int
+    var gpa:    Double
+    
+    // Name [id] (age, gender) with GPA gpa
+    override var description: String {
+        return "\(name) [\(id)] (\(age), \(gender)) with \(gpa) gpa"
+    }
+    init(name: String, gender: String, age: Int, id: Int, gpa: Double) {
+        self.id  = id
+        self.gpa = gpa
+        super.init(name: name, gender: gender, age: age)
+    }
+    
+}
+
+class Teacher : Person {
+    var coolness: Int
+    
+    override var description: String {
+        return "\(name) (\(age), \(gender)) with \(coolness) coolness"
+    }
+    
+    init(name: String, gender: String, age: Int, coolness: Int) {
+        self.coolness = coolness
+        super.init(name: name, gender: gender, age: age)
+    }
+}
+
+
+class Class {
+    
+    var subject: String
+    var teacher: String
+    var roster:  [Student]
+    
+    init(subject: String, teacher: String, roster: [Student]) {
+        self.subject = subject
+        self.teacher = teacher
+        self.roster  = roster
+    }
     
     func listStudents(separator: String) -> String {
         var output = ""
@@ -51,21 +107,25 @@ struct Class {
         print(listStudents(separator:separator))
     }
     
-    mutating func addStudent() {
+    func addStudent() {
         print("What's the student's name?")
         let newStudentName=readLine()
         print("What's the student's ID?")
         let newStudentId=readLine()
+        print("What's the student's age?")
+        let newStudentAge=readLine()
+        print("What's the student's gender?")
+        let newStudentGender=readLine()
         print("What's the student's GPA?")
         let newStudentGpa=readLine()
-        let newStudent = Student(id: Int(newStudentId!)!, name: newStudentName!, gpa: Double(newStudentGpa!)!)
+        let newStudent = Student(name: newStudentName!, gender: newStudentGender!, age: Int(newStudentAge!)!, id: Int(newStudentId!)!, gpa: Double(newStudentGpa!)!)
         roster.append(newStudent)
     }
 
     
     
 }
-
+/*
 func studentGradeAverage(students: [Student]) -> Double {
     var sum = 0.0
     for student in students {
@@ -74,17 +134,39 @@ func studentGradeAverage(students: [Student]) -> Double {
     }
     return sum / Double(students.count)
 }
-
+*/
 func schoolProgram() {
+    /*
+    let myTeacher = Teacher(name: "Mr. Jean", gender: "Male", age: 31, coolness: 6)
+    let myStudent = Student(name: "Jim Blue", gender: "Male", age: 16, id: 1056397, gpa: 3.9)
+    let myPerson = Person(name: "Sarah Red", gender: "Female", age: 20)
+    
+    
+    print(myPerson)
+    print(myStudent)
+    print(myTeacher)
+    */
     
     
     var singleClass = Class(subject:"Science", teacher:"Mr. Ologey", roster: [
-        Student(id: 1049168, name: "Nicholas Hoang", gpa: 4.0),
-        Student(id: 1424242, name: "Meen N. O'Life", gpa: 3.8),
-        Student(id: 0000001, name: "Olde Gihe", gpa: 3.677),
-        Student(id: 1234567, name: "Count Withe Mhee", gpa: 3.9),
-        Student(id: 9876543, name: "Dee Creasse", gpa: 3.5)
+        Student(name: "Nicholas Hoang", gender: "Male", age: 13, id: 1049168, gpa: 4.0),
+        Student(name: "Meen N. O'Life", gender: "Female", age: 42, id: 1424242, gpa: 3.8),
+        Student(name: "Olde Gihe", gender: "Male", age: 89, id: 0000001, gpa: 3.677),
+        Student(name: "Count Withe Mhee", gender: "Male", age: 123, id: 1234567, gpa: 3.9),
+        Student(name: "Dee Creasse", gender: "Female", age: 210, id: 9876543, gpa: 3.5)
     ])
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     // singleClass.printStudents(separator: "\n")
     // print(singleClass.calculateGradeAverage())
@@ -110,6 +192,7 @@ func schoolProgram() {
     // print(studentNames(students: singleClass.roster, separator: " // ")) // TODO: why not slashes???
     
     //print("The GPA for these students is: \(studentGradeAverage(classes.students: classes.students)).")
+   
 }
 
 
